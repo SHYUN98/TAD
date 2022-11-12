@@ -1,0 +1,70 @@
+# Directories arguments for Training only
+data_root: "C:/Users/rosha/Desktop/tad-IROS2019-master/HEVI_dataset/fol_data"
+ego_data_root: "C:/Users/rosha/Desktop/tad-IROS2019-master/HEVI_dataset/ego_motion"
+checkpoint_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/checkpoints"
+
+# Directories arguments for running on Anomaly Detection videos only
+# best_fol_model: 'checkpoints/fol_ego_checkpoints/fol_ego_0.5sec/fol_epoch_078_loss_0.0013.pt'
+# best_ego_pred_model: "/home/brianyao/Documents/stad2019iros-pytorch/checkpoints/ego_pred_checkpoints/epoch_080_loss_0.001.pt"
+best_fol_model: 'C:/Users/rosha/Desktop/tad-IROS2019-master/checkpoints/fol_epoch_081_loss_0.0113.pt'
+best_ego_pred_model: 'C:/Users/rosha/Desktop/tad-IROS2019-master/checkpoints/ego_pred_epoch_081_loss_0.0161.pt'
+
+test_dataset: "taiwan_sa" 
+#label_file: 'C:/Users/rosha/Desktop/tad-IROS2019-master/ffmpeg-2022-06-16-git-5242ede48d-full_build/bin/datasets/A3D_labels.pkl'
+
+track_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/deep_sort_clear"
+flow_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/flownet2/"
+ego_motion_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/ego_motion"
+img_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/frames"
+#save_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/fol_ego_results"
+save_dir: "C:/Users/rosha/Desktop/tad-IROS2019-master/result"
+test_root: "C:/Users/rosha/Desktop/tad-IROS2019-master/frames" 
+
+# dataset arguments
+seed_max: 5
+segment_len: 16
+
+# training parameters
+nb_fol_epoch: 100
+nb_ego_pred_epoch: 200
+lr: 0.0001
+
+lambda_fol: 1
+lambda_ego: 1
+device: 'cuda'
+# fol model parameters
+pred_timesteps: 5
+input_embed_size: 512
+flow_enc_size: 512
+box_enc_size: 512
+with_ego: False
+
+enc_hidden_size: 512 # no use
+enc_concat_type: "average"
+predictor_input_size: 512
+dec_hidden_size: 512
+pred_dim: 4
+
+
+# ego_pred model parameters
+ego_embed_size: 128
+ego_enc_size: 128
+ego_dec_size: 128
+ego_pred_input_size: 128
+ego_dim: 3
+
+# dataloader parameters
+batch_size: 32
+shuffle: True
+num_workers: 0
+
+# image parameters
+H: 992 #992 #720
+W: 1920 #1920 #1152
+channels: 3
+
+flow_roi_size: [5,5,2]
+
+# Anomaly detection parameters
+max_age: 10
+
